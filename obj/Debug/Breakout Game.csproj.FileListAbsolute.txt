@@ -1,0 +1,10 @@
+C:\Users\piro1\OneDrive - Arkansas Tech University\Visual Programming\Week 7 (Midterm)\Breakout Game\bin\Debug\Breakout Game.exe.config
+C:\Users\piro1\OneDrive - Arkansas Tech University\Visual Programming\Week 7 (Midterm)\Breakout Game\bin\Debug\Breakout Game.exe
+C:\Users\piro1\OneDrive - Arkansas Tech University\Visual Programming\Week 7 (Midterm)\Breakout Game\bin\Debug\Breakout Game.pdb
+C:\Users\piro1\OneDrive - Arkansas Tech University\Visual Programming\Week 7 (Midterm)\Breakout Game\obj\Debug\Breakout Game.csproj.AssemblyReference.cache
+C:\Users\piro1\OneDrive - Arkansas Tech University\Visual Programming\Week 7 (Midterm)\Breakout Game\obj\Debug\Breakout_Game.Form1.resources
+C:\Users\piro1\OneDrive - Arkansas Tech University\Visual Programming\Week 7 (Midterm)\Breakout Game\obj\Debug\Breakout_Game.Properties.Resources.resources
+C:\Users\piro1\OneDrive - Arkansas Tech University\Visual Programming\Week 7 (Midterm)\Breakout Game\obj\Debug\Breakout Game.csproj.GenerateResource.cache
+C:\Users\piro1\OneDrive - Arkansas Tech University\Visual Programming\Week 7 (Midterm)\Breakout Game\obj\Debug\Breakout Game.csproj.CoreCompileInputs.cache
+C:\Users\piro1\OneDrive - Arkansas Tech University\Visual Programming\Week 7 (Midterm)\Breakout Game\obj\Debug\Breakout Game.exe
+C:\Users\piro1\OneDrive - Arkansas Tech University\Visual Programming\Week 7 (Midterm)\Breakout Game\obj\Debug\Breakout Game.pdb

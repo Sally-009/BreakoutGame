@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,7 +13,6 @@ namespace Breakout_Game
 {
     public partial class Form1 : Form
     {
-
         bool goLeft;
         bool goRight;
 
@@ -20,6 +20,8 @@ namespace Breakout_Game
         int ballx;
         int bally;
         int playerSpeed;
+
+        private SoundPlayer sePlayer;
 
         // Random number
         Random rnd = new Random();
@@ -39,6 +41,8 @@ namespace Breakout_Game
             playerSpeed = 12;
             txtScore.Text = "Score: " + score;
 
+            sePlayer = new SoundPlayer(@"hit_se.wav");
+
             gameTimer.Start();
 
             // Change the color of blocks randomly
@@ -56,7 +60,9 @@ namespace Breakout_Game
         {
             gameTimer.Stop();
 
-            txtScore.Text = "Score: " + score + " " + message;
+            // shoe mesage and close game
+            MessageBox.Show(message, "Game Over");
+            Close();
         }
 
         private void mainGameTimerEvent(object sender, EventArgs e)
@@ -103,6 +109,9 @@ namespace Breakout_Game
                     // x = block
                     if (ball.Bounds.IntersectsWith(x.Bounds))
                     {
+                        // play SE
+                        sePlayer.Play();
+
                         // add score
                         score += 1;
 

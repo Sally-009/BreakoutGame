@@ -15,7 +15,6 @@ namespace Breakout_Game
 
         bool goLeft;
         bool goRight;
-        bool isGameOver;
 
         int score;
         int ballx;
@@ -52,8 +51,19 @@ namespace Breakout_Game
             }
         }
 
+        // gameover
+        private void gameOver(string message)
+        {
+            gameTimer.Stop();
+
+            txtScore.Text = "Score: " + score + " " + message;
+        }
+
         private void mainGameTimerEvent(object sender, EventArgs e)
         {
+            // show score
+            txtScore.Text = "Score: " + score;
+
             // move to left until it reaches to the edge of screen
             if (goLeft == true && player.Left > 0)
                 player.Left -= playerSpeed;
@@ -62,6 +72,62 @@ namespace Breakout_Game
             if (goRight == true && player.Left < 700)
                 player.Left += playerSpeed;
 
+            // move the ball
+            ball.Left += ballx;
+            ball.Top += bally;
+
+            // bound when it hits the edge
+            if (ball.Left < 0 || ball.Left > 775)
+                ballx = -ballx;
+
+            // bound when it hits the top
+            if (ball.Top < 0)
+                bally = -bally;
+
+            // bound with random speed when it hits the player
+            if (ball.Bounds.IntersectsWith(player.Bounds))
+            {
+                bally = rnd.Next(5, 12) * -1;
+
+                if (ballx < 0)
+                    ballx = rnd.Next(5, 12) * -1;
+                else
+                    ballx = rnd.Next(5, 12);
+            }
+
+            // hundle when it hits blocks
+            foreach (Control x in this.Controls)
+            {
+                if (x is PictureBox && (string)x.Tag == "blocks")
+                {
+                    // x = block
+                    if (ball.Bounds.IntersectsWith(x.Bounds))
+                    {
+                        // add score
+                        score += 1;
+
+                        // bound
+                        bally = -bally;
+
+                        // delete the block
+                        this.Controls.Remove(x);
+                    }
+                }
+            }
+
+            // game clear
+            if(score == 15)
+            {
+                // show end game message
+                gameOver("You Win!!");
+            }
+
+            // game over (out of screen)
+            if(ball.Top > 455)
+            {
+                // show lose message
+                gameOver("You Lose!!");
+            }
         }
 
         // keep moving while the key is pressed

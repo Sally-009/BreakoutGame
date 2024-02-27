@@ -80,7 +80,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="hit_se.wav" />
+    <Content Include="Audio\clear_se.wav" />
+    <Content Include="Audio\hit_se.wav" />
+    <Content Include="Audio\lose_se.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

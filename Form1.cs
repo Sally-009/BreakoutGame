@@ -21,7 +21,9 @@ namespace Breakout_Game
         int bally;
         int playerSpeed;
 
-        private SoundPlayer sePlayer;
+        private SoundPlayer hitPlayer;
+        private SoundPlayer clearSound;
+        private SoundPlayer loseSound;
 
         // Random number
         Random rnd = new Random();
@@ -41,7 +43,9 @@ namespace Breakout_Game
             playerSpeed = 12;
             txtScore.Text = "Score: " + score;
 
-            sePlayer = new SoundPlayer(@"hit_se.wav");
+            hitPlayer = new SoundPlayer(@"C:\Users\piro1\OneDrive - Arkansas Tech University\Visual Programming\Week 7 (Midterm)\Breakout Game\Audio\hit_se.wav");
+            clearSound = new SoundPlayer(@"C:\Users\piro1\OneDrive - Arkansas Tech University\Visual Programming\Week 7 (Midterm)\Breakout Game\Audio\clear_se.wav");
+            loseSound = new SoundPlayer(@"C:\Users\piro1\OneDrive - Arkansas Tech University\Visual Programming\Week 7 (Midterm)\Breakout Game\Audio\lose_se.wav");
 
             gameTimer.Start();
 
@@ -61,8 +65,7 @@ namespace Breakout_Game
             gameTimer.Stop();
 
             // shoe mesage and close game
-            MessageBox.Show(message, "Game Over");
-            Close();
+            txtScore.Text = "Score: " + score + " " + message;
         }
 
         private void mainGameTimerEvent(object sender, EventArgs e)
@@ -110,7 +113,7 @@ namespace Breakout_Game
                     if (ball.Bounds.IntersectsWith(x.Bounds))
                     {
                         // play SE
-                        sePlayer.Play();
+                        hitPlayer.Play();
 
                         // add score
                         score += 1;
@@ -128,6 +131,7 @@ namespace Breakout_Game
             if(score == 15)
             {
                 // show end game message
+                clearSound.Play();
                 gameOver("You Win!!");
             }
 
@@ -135,6 +139,7 @@ namespace Breakout_Game
             if(ball.Top > 455)
             {
                 // show lose message
+                loseSound.Play();
                 gameOver("You Lose!!");
             }
         }
